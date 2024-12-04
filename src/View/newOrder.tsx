@@ -116,11 +116,11 @@ const NewOrder = () => {
           onCancel={() => {
             setOpen(false);
           }}
-        /><View style={{ flexDirection:'row', width:'89%',marginTop:10}}>
-         <Icon name="clockcircle" size={24} color="red" />
+        /><View style={{ flexDirection:'row', width:'89%',marginTop:10, marginLeft:20}}>
+         <Icon name="clockcircle" size={15} color="#000" />
          <Text style={styles.headertext2}>Please double check the info you mentioned above and submit your order...</Text></View>
          <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Track Order</Text>
+        <Text style={styles.buttonText}>Submit New Booking</Text>
       </TouchableOpacity>
       </ScrollView>
     </View>
@@ -149,7 +149,8 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   headertext2:{  fontSize: 15,
-    color: '#828282',},
+    color: '#828282',
+  marginLeft:5},
   input: {
     height: 50,
     borderColor: 'gray',
