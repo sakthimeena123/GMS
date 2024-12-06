@@ -8,13 +8,14 @@ import OrderTrack from '../View/OrderTrackPage';
 import Track from '../View/TrackingPage';
 import Profile from '../View/profile';
 import Editprofile from '../View/Editprofile';
+import AboutUs from '../View/AboutUs';
 
 const Stack = createStackNavigator();
 
 const StackNavigator: React.FC = () => {
   return (
     <Stack.Navigator 
-      initialRouteName="Editprofile" 
+      initialRouteName="AboutUs" 
       screenOptions={{headerShown: false}}  
     >
       <Stack.Screen name="loginPage" component={loginPage} />
@@ -26,6 +27,7 @@ const StackNavigator: React.FC = () => {
       
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="Editprofile" component={Editprofile} />
+      <Stack.Screen name="AboutUs" component={AboutUs} />
 
 
     </Stack.Navigator>

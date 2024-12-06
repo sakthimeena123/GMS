@@ -96,10 +96,7 @@ const OrderTrack = () => {
               placeholderTextColor="#555"
             />
           </View>
-          {/* <View style={{justifyContent:'center'}}><Text style={{textAlign:"center", fontSize:10}}>.</Text>
-        <Text style={{textAlign:"center"}}>.</Text>
-        <Text style={{textAlign:"center"}}>.</Text>
-        <Text style={{textAlign:"center"}}>.</Text></View> */}
+          
           <View
             style={{
               borderStyle: 'dotted',
@@ -152,7 +149,6 @@ const OrderTrack = () => {
                 justifyContent: 'space-between',
                 marginTop: 5,
               }}>
-              {' '}
               <Text>Muthu Kumar</Text>
               <Text>+91 7539039402</Text>
             </View>
@@ -183,7 +179,6 @@ const styles = StyleSheet.create({
   icon: {width: 20, height: 20, color: '#fff'},
 
   cardView: {
-    // marginTop:20,
     flexDirection: 'row',
     justifyContent: 'space-between',
     margin: 10,
