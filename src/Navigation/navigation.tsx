@@ -5,13 +5,16 @@ import otpPage from '../View/Otppage';
 import homePage from '../View/homepage';
 import NewOrder from '../View/newOrder';
 import OrderTrack from '../View/OrderTrackPage';
+import Track from '../View/TrackingPage';
+import Profile from '../View/profile';
+import Editprofile from '../View/Editprofile';
 
 const Stack = createStackNavigator();
 
 const StackNavigator: React.FC = () => {
   return (
     <Stack.Navigator 
-      initialRouteName="OrderTrack" 
+      initialRouteName="Editprofile" 
       screenOptions={{headerShown: false}}  
     >
       <Stack.Screen name="loginPage" component={loginPage} />
@@ -19,6 +22,11 @@ const StackNavigator: React.FC = () => {
       <Stack.Screen name="homePage" component={homePage} />
       <Stack.Screen name="newOrder" component={NewOrder} />
       <Stack.Screen name="OrderTrack" component={OrderTrack} />
+      <Stack.Screen name="Track" component={Track} />
+      
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Editprofile" component={Editprofile} />
+
 
     </Stack.Navigator>
   );

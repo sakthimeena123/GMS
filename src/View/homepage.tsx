@@ -105,12 +105,6 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'contain',
   },
-  headertext1: {
-    marginLeft: 23,
-    fontSize: 15,
-    color: '#828282',
-    marginTop: 15,
-  },
   button:{
     alignSelf:'center', 
     // width:'100%', 
