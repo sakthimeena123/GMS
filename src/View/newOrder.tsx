@@ -1,9 +1,15 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import Icon from 'react-native-vector-icons/AntDesign'; 
+import Icon1 from 'react-native-vector-icons/MaterialIcons';
+
 
 const NewOrder = () => {
+
+  const navigation = useNavigation();
+
   const [value, setValue] = useState(null);
   const [text, setText] = useState('');
   const [text1, setText1] = useState('');
@@ -21,6 +27,12 @@ const NewOrder = () => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.topBar}>
+        <TouchableOpacity style={styles.backButton}  onPress={() => navigation.goBack('homePage')}>
+          <Icon1 name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+        <Text style={styles.topBarTitle}>NewOrder</Text>
+      </View>
       <ScrollView>
         <View style={styles.header}>
           <Text style={styles.headerText}>Book New Order</Text>
@@ -119,7 +131,7 @@ const NewOrder = () => {
         /><View style={{ flexDirection:'row', width:'89%',marginTop:10, marginLeft:20}}>
          <Icon name="clockcircle" size={15} color="#000" />
          <Text style={styles.headertext2}>Please double check the info you mentioned above and submit your order...</Text></View>
-         <TouchableOpacity style={styles.button}>
+         <TouchableOpacity style={styles.button} >
         <Text style={styles.buttonText}>Submit New Booking</Text>
       </TouchableOpacity>
       </ScrollView>
@@ -131,6 +143,25 @@ const styles = StyleSheet.create({
   container: { flex: 1 },
   header: { marginTop: '10%', marginLeft: 10 },
   headerText: { fontSize: 18, fontWeight: 'bold' },
+  topBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
+    backgroundColor: '#2A4084',
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  backButton: {
+    padding: 10,
+  },
+  topBarTitle: {
+    flex: 1,
+    textAlign: 'right',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
   dropdown: {
     height: 50,
     borderColor: 'gray',

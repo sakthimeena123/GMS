@@ -1,6 +1,8 @@
 import {View, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native';
 import {Ellipse, eye} from '../Constants/appImage';
 import { useState } from 'react';
+import Icon1 from 'react-native-vector-icons/MaterialIcons';
+
 
 const Editprofile = () => {
     const [text, setText] = useState('');
@@ -9,6 +11,12 @@ const Editprofile = () => {
 
   return (
     <View style={{flex: 1}}>
+      <View style={styles.topBar}>
+        <TouchableOpacity style={styles.backButton} onPress={() => {}}>
+          <Icon1 name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+        <Text style={styles.topBarTitle}>EditProfile</Text>
+      </View>
       <View style={styles.imageContainer}>
         <Image source={Ellipse} style={styles.image} />
       </View>
@@ -35,7 +43,6 @@ const Editprofile = () => {
         </View>
         <Text style={styles.headertext1}>Change Password</Text>
         <View style={styles.inputText}>
-         
           <TextInput
             style={styles.inpu1t}
             placeholder="123fhtkdf"
@@ -57,9 +64,27 @@ const styles = StyleSheet.create({
     height: 200,
     borderColor: '#000',
     justifyContent: 'center',
-    
     marginLeft:60,
     marginTop:50
+  },
+  topBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
+    backgroundColor: '#2A4084',
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  backButton: {
+    padding: 10,
+  },
+  topBarTitle: {
+    flex: 1,
+    textAlign: 'right',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
   },
   imagecount:{width:25,height:25 ,marginTop:5, },
   headertext1: {

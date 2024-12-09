@@ -16,10 +16,21 @@ import {
   Icons,
   Privacy,
 } from '../Constants/appImage';
+import Icon1 from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
+import navigation from '../Navigation/navigation';
 
 const Profile = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={{flex: 1}}>
+      <View style={styles.topBar}>
+        <TouchableOpacity style={styles.backButton}    onPress={() => navigation.goBack('homePage')}>
+          <Icon1 name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+        <Text style={styles.topBarTitle}>Profile</Text>
+      </View>
       <View
         style={{
           flexDirection: 'row',
@@ -36,7 +47,8 @@ const Profile = () => {
         </View>
         <Image source={edit} style={styles.image1} />
       </View>
-      <View
+      <TouchableOpacity
+      onPress={() => navigation.navigate('AboutUs')}
         style={{
           flexDirection: 'row',
           marginTop: 10,
@@ -52,7 +64,7 @@ const Profile = () => {
           <Text style={{fontSize: 20}}>About Us</Text>
         </View>
         <Image source={Icons} style={styles.image1} />
-      </View>
+      </TouchableOpacity>
       <View
         style={{
           backgroundColor: '#fff',
@@ -91,6 +103,8 @@ const Profile = () => {
         </View>
       </View>
       <TouchableOpacity
+         onPress={() => navigation.navigate('loginPage')}
+
         style={{
           flexDirection: 'row',
           marginTop: 10,
@@ -119,6 +133,25 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     width: '90%',
     alignSelf: 'center',
+  },
+  topBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
+    backgroundColor: '#2A4084',
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  backButton: {
+    padding: 10,
+  },
+  topBarTitle: {
+    flex: 1,
+    textAlign: 'right',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
   },
 });
 

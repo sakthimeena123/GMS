@@ -10,8 +10,11 @@ import {
 } from 'react-native';
 import {Frameicon, Group, home, cash, load, row} from '../Constants/appImage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 
 const OrderTrack = () => {
+
+  const navigation = useNavigation();
   const data = [
     {id: 1, name: 'Number of Boxes', name1: ':', name2: '2'},
     {
@@ -32,6 +35,12 @@ const OrderTrack = () => {
   const [text, setText] = useState('');
   return (
     <ScrollView>
+       <View style={styles.topBar}>
+        <TouchableOpacity style={styles.backButton}  onPress={() => navigation.goBack('loginPage')}>
+          <Icon name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+        <Text style={styles.topBarTitle}>TrackOrder</Text>
+      </View>
       <View style={{flex: 1, marginTop: '10%'}}>
         <Text style={styles.headertext1}>Enter your Order ID</Text>
         <View style={styles.inputText}>
@@ -153,7 +162,7 @@ const OrderTrack = () => {
               <Text>+91 7539039402</Text>
             </View>
           </View>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Track')}>
             <Image source={row} style={styles.icon1} />
             <Text style={styles.buttonText}>Track Order</Text>
           </TouchableOpacity>
@@ -168,6 +177,25 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontSize: 16,
     color: '#000',
+  },
+  topBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
+    backgroundColor: '#2A4084',
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  backButton: {
+    padding: 10,
+  },
+  topBarTitle: {
+    flex: 1,
+    textAlign: 'right',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
   },
   icon1: {width: 20, height: 20},
   headertext1: {

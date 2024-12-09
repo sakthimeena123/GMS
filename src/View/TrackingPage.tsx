@@ -1,9 +1,19 @@
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {cash, check, Group, round} from '../Constants/appImage';
+import Icon1 from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
+
 
 const Track = () => {
+  const navigation = useNavigation();
   return (
     <View style={{flex: 1}}>
+       <View style={styles.topBar}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack('loginPage')}>
+          <Icon1 name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+        <Text style={styles.topBarTitle}>TrackOrder</Text>
+      </View>
       <View style={styles.viewtext}>
         <View style={styles.card}>
           <View style={styles.row1}>
@@ -154,6 +164,25 @@ const styles = StyleSheet.create({
     width: '95%',
     marginTop: 10,
     marginLeft: 5,
+  },
+  topBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
+    backgroundColor: '#2A4084',
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  backButton: {
+    padding: 10,
+  },
+  topBarTitle: {
+    flex: 1,
+    textAlign: 'right',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
   },
   divider: {
     height: 1,

@@ -1,9 +1,19 @@
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {about} from '../Constants/appImage';
+import Icon1 from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
+
 
 const AboutUs = () => {
+  const navigation = useNavigation();
   return (
-    <View>
+    <View style={{flex:1}}>
+       <View style={styles.topBar}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack('Profile')}>
+          <Icon1 name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+        <Text style={styles.topBarTitle}>AboutUs</Text>
+      </View>
       <View style={{alignSelf: 'center', marginTop: '10%'}}>
         <Image source={about} style={styles.imageColum} />
       </View>
@@ -43,6 +53,25 @@ const AboutUs = () => {
 
 const styles = StyleSheet.create({
   imageColum: {width: 250, height: 250},
+  topBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
+    backgroundColor: '#2A4084',
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  backButton: {
+    padding: 10,
+  },
+  topBarTitle: {
+    flex: 1,
+    textAlign: 'right',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
 });
 
 export default AboutUs;
